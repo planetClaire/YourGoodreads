@@ -249,3 +249,4 @@ Web/scripts/concat/*
 Web/scripts/*.min.js*
 Web/styles/styles.css
 Web/styles/styles.css.map
+PublishScripts/*
