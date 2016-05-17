@@ -107,8 +107,11 @@ $(function () {
                     var currentlyReadingRss = "https://www.goodreads.com/review/list_rss/" + goodreadsId + "?shelf=currently-reading";
                     var currentlyReadingUrl = 'https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=\"' + encodeURIComponent(currentlyReadingRss) + '\"&format=json';
                     $.get(currentlyReadingUrl, function (currentlyReadingData) {
-                        if (currentlyReadingData.query.results) {
-                            results = currentlyReadingData.query.results.item.concat(results);
+                        var currentlyReadingResults = currentlyReadingData.query.results;
+                        if (currentlyReadingResults) {
+                            results = currentlyReadingResults.item.book_id
+                                ? [currentlyReadingResults.item].concat(results)
+                                : currentlyReadingResults.item.concat(results);
                         }
                         var goodreadsPref = localStorage.getItem("goodreadsPref");
                         if (goodreadsPref === "ThisYear") {
