@@ -18,6 +18,8 @@
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
 @include foundation-tooltip;
+@include foundation-close-button;
+@include foundation-float-classes;
 /*
 @include foundation-accordion;
 @include foundation-table;
@@ -27,11 +29,9 @@
 @include foundation-callout;
 @include foundation-breadcrumbs;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
 @include foundation-accordion-menu;
 @include foundation-badge;
 @include foundation-button-group;
-@include foundation-close-button;
 @include foundation-drilldown-menu;
 @include foundation-flex-video;
 @include foundation-pagination;
@@ -89,15 +89,9 @@
 
 }
 
-.hidden{
-    display: none;
-}
-
-.qtip-gr{
-    background: $secondary-color;
+.reveal{
     color: $body-font-color;
     border-color: $secondary-color;
-    max-width: 310px;
    h2{
         font-size: 1.2rem;
         margin: 0;
@@ -115,14 +109,9 @@
     a, a:hover, a:active{
         color: $yellow;
     }
-}
-.qtip-default .qtip-icon{
-    background: $secondary-color;
-    border-color: $secondary-color;;
-    color: #FFFFFF;
-    right: 0;
-    top: 0;
-    font-size: 1.1rem;
+    .book-image{
+        margin-left: 10px;
+    }
 }
 .rating{
     font-size: 1.1rem;

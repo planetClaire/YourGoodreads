@@ -8,36 +8,34 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Your Goodreads</li>
-                <li><a id="aAll" href="#" title="Up to 100">All</a></li>
-                <li><a id="aThisYear" href="#">This year</a></li>
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Your Goodreads</li>
+            <li><a id="aAll" href="#" title="Up to 100">All</a></li>
+            <li><a id="aThisYear" href="#">This year</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <form id="frmRead">
+            <ul class="menu">
+                <li><input id="txtId" type="text" placeholder="Your Goodreads Id"></li>
+                <li><button id="btnSubmit" type="submit" class="button"></button></li>
+                <li><a href="https://www.goodreads.com" target="_blank"><img src="images/goodreads.png" alt="Goodreads icon"/></a></li>
             </ul>
-        </div>
-        <div class="top-bar-right">
-            <form id="frmRead">
-                <ul class="menu">
-                    <li><input id="txtId" type="text" placeholder="Your Goodreads Id"></li>
-                    <li><button id="btnSubmit" type="submit" class="button"></button></li>
-                    <li><a href="https://www.goodreads.com" target="_blank"><img src="images/goodreads.png" alt="Goodreads icon" /></a></li>
-                </ul>
-            </form>
-        </div>
+        </form>
     </div>
+</div>
 
-    <div class="text-center">
-        <ol id="results"></ol>
-    </div>
+<div class="text-center">
+    <ol id="results"></ol>
+</div>
 
 <div id="overlay">
     <img src="images/radio.svg" id="img-load"/>
 </div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
-    <script src="scripts/scripts.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="scripts/scripts.min.js"></script>
 </body>
 </html>

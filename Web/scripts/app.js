@@ -1,57 +1,52 @@
-﻿//$(document).foundation();
+﻿$(document).foundation();
 
 $(function () {
 
-    var initTooltips = function () {
-        $('#results').imagesLoaded(function () {
-            $('.hasTooltip').each(function () {
-                $(this).qtip({
-                    content: {
-                        text: $(this).next('div'),
-                        button: true
-                    },
-                    position: {
-                        my: 'top left',
-                        at: 'center center'
-                    },
-                    show: 'click',
-                    hide: 'click',
-                    style: {
-                        classes: 'qtip-gr'
-                    }
-                });
-            });
-        });
-    };
-
     var renderResults = function (results, goodreadsId) {
-        initTooltips();
         $("#results").empty();
         $(results).each(function () {
             var img = document.createElement("img");
             img.setAttribute("src", this.book_large_image_url);
             img.setAttribute("alt", this.title);
             var li = document.createElement("li");
-            li.setAttribute("class", "book hasTooltip");
+            li.setAttribute("class", "book");
+            li.setAttribute("data-open", "reveal-" + this.book_id);
             var span = document.createElement("span");
             span.setAttribute("class", "img-helper");
             $(li).append(span).append(img);
             $("#results").append(li);
+
             var hidden = document.createElement("div");
-            hidden.setAttribute("class", "hidden");
+            hidden.setAttribute("class", "reveal");
+            hidden.setAttribute("data-reveal", "");
+            hidden.setAttribute("id", "reveal-" + this.book_id);
+            hidden.setAttribute("data-animation-in", "fade-in");
+            hidden.setAttribute("data-animation-out", "fade-out");
+
             var title = document.createElement("h2");
             $(title).html("<a href='https://www.goodreads.com/book/show/" + this.book_id + "' target='_blank'>" + this.title + "</a>");
+
+            var bookImage = document.createElement("img");
+            bookImage.setAttribute("src", this.book_large_image_url);
+            bookImage.setAttribute("alt", this.title);
+            bookImage.setAttribute("class", "book-image float-right");
+            bookImage.setAttribute("width", "160");
+
             var author = document.createElement("h3");
             $(author).html("by " + this.author_name);
+
             var published = document.createElement("h4");
             $(published).html(this.book.num_pages + " pages | Published " + this.book_published);
+
             var read = document.createElement("h5");
+
             var readDate = Date.parse(this.user_read_at);
             if (readDate) {
                 $(read).html("<a href='https://www.goodreads.com/review/list/" + goodreadsId + "?shelf=read' + target='_blank'>Finished " + new Date(this.user_read_at).toDateString() + "</a>");
             } else {
                 $(read).html("<a href='https://www.goodreads.com/review/list/" + goodreadsId + "?shelf=currently-reading' + target='_blank'>Currently reading</a>");
             }
+
             var rating = document.createElement("span");
             rating.setAttribute("class", "rating");
             rating.setAttribute("title", "Your rating");
@@ -63,23 +58,36 @@ $(function () {
                     $(rating).append("&#9734;");
                 }
             }
+
             var averageRating = document.createElement("span");
             averageRating.setAttribute("class", "averageRating");
             averageRating.setAttribute("title", "Average rating " + this.average_rating);
             var averageStars = Math.round(this.average_rating);
-            for (var i = 0; i < 5; i++) {
-                if (averageStars > i) {
+            for (var j = 0; j < 5; j++) {
+                if (averageStars > j) {
                     $(averageRating).append("&#9733;");
                 } else {
                     $(averageRating).append("&#9734;");
                 }
             }
+
             var description = document.createElement("p");
             description.setAttribute("class", "description");
             $(description).html(this.book_description);
-            $(hidden).append(title).append(author).append(published).append(read).append(rating).append(averageRating).append(description);
+
+            var close = document.createElement("button");
+            close.setAttribute("class", "close-button");
+            close.setAttribute("data-close", "");
+            close.setAttribute("aria-label", "Close modal");
+            close.setAttribute("type", "button");
+            var buttonSpan = document.createElement("span");
+            buttonSpan.setAttribute("aria-hidden", "true");
+            $(buttonSpan).html("&times;");
+            $(close).append(buttonSpan);
+
+            $(hidden).append(title).append(bookImage).append(author).append(published).append(read).append(rating).append(averageRating).append(description).append(close);
             $("#results").append(hidden);
-            //initTooltips();
+            new Foundation.Reveal($(hidden));
         });
     }
 
@@ -133,7 +141,6 @@ $(function () {
     };
 
     $("#frmRead").submit(function(event) {
-        $('.qtip:visible').qtip("hide");
         if (typeof (Storage) !== "undefined") {
             var goodreadsId = $("#txtId").val();
             localStorage.setItem("goodreadsId", goodreadsId);
@@ -146,7 +153,6 @@ $(function () {
     });
 
     $("#aAll").click(function () {
-        $('.qtip:visible').qtip("hide");
         var goodreadsPref = localStorage.getItem("goodreadsPref");
         if (goodreadsPref && goodreadsPref !== "All") {
             localStorage.setItem("goodreadsPref", "All");
@@ -158,7 +164,6 @@ $(function () {
     });
 
     $("#aThisYear").click(function () {
-        $('.qtip:visible').qtip("hide");
         var goodreadsPref = localStorage.getItem("goodreadsPref");
         if (goodreadsPref && goodreadsPref !== "ThisYear") {
             localStorage.setItem("goodreadsPref", "ThisYear");
@@ -182,6 +187,5 @@ $(function () {
         $("#aThisYear").addClass("active");
     }
 
-    initTooltips();
     init();
 });
