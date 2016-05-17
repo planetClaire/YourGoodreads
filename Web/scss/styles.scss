@@ -20,13 +20,13 @@
 @include foundation-tooltip;
 @include foundation-close-button;
 @include foundation-float-classes;
+@include foundation-callout;
 /*
 @include foundation-accordion;
 @include foundation-table;
 @include foundation-off-canvas;
 @include foundation-orbit;
 @include foundation-media-object;
-@include foundation-callout;
 @include foundation-breadcrumbs;
 @include foundation-visibility-classes;
 @include foundation-accordion-menu;
@@ -74,6 +74,12 @@
         text-align: center; 
         display: inline-block;
         padding: 10px;
+        cursor: pointer;
+        &:hover{
+            img{
+                border: solid 2px $secondary-color;
+            }
+        }
         .img-helper {
             display: inline-block;
             height: 100%;
@@ -140,4 +146,28 @@
     position:absolute; 
     top: 150px;
     left: 50%;
+}
+.hidden{
+    display: none;
+}
+.callout{
+    background-color: $primary-color;
+    a{
+        color: $yellow;
+        font-weight: bold;
+    }
+}
+footer{
+    position: relative;
+    background: $secondary-color;
+    padding: 30px 15px 15px 15px;
+    text-align: center;
+    font-weight: bold;
+    height: 149px;
+    a{
+        color: $yellow;
+    }
+}
+#fork-me{
+    position: absolute; bottom: 0; left: 0; border: 0;
 }

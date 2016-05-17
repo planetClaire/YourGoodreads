@@ -11,6 +11,7 @@ $(function () {
             var li = document.createElement("li");
             li.setAttribute("class", "book");
             li.setAttribute("data-open", "reveal-" + this.book_id);
+            li.setAttribute("title", "Click me!");
             var span = document.createElement("span");
             span.setAttribute("class", "img-helper");
             $(li).append(span).append(img);
@@ -121,7 +122,8 @@ $(function () {
                         $("#overlay").hide();
                     });
                 } else {
-                    alert("Sorry, couldn't find anything. Check your goodreads Id");
+                    $("#overlay").hide();
+                    $("#nothing-found").show();
                 }
             });
         }
@@ -135,24 +137,26 @@ $(function () {
             getBooks(goodreadsId, refresh);
         } else {
             $("#btnSubmit").text("Go");
-            alert("Enter your Goodreads Id");
+            $("#enter-id").show();
             $("#txtId").focus();
         };
     };
 
-    $("#frmRead").submit(function(event) {
+    $("#frmRead").submit(function (event) {
+        $(".hidden").hide();
         if (typeof (Storage) !== "undefined") {
             var goodreadsId = $("#txtId").val();
             localStorage.setItem("goodreadsId", goodreadsId);
             localStorage.removeItem("goodreadsRead" + goodreadsId);
             getBooks(goodreadsId);
         } else {
-            alert("Sorry, your browser doesn't support local storage and therefore we can't help you.");
+            $("#no-local").show();
         }
         event.preventDefault();
     });
 
     $("#aAll").click(function () {
+        $(".hidden").hide();
         var goodreadsPref = localStorage.getItem("goodreadsPref");
         if (goodreadsPref && goodreadsPref !== "All") {
             localStorage.setItem("goodreadsPref", "All");
@@ -164,6 +168,7 @@ $(function () {
     });
 
     $("#aThisYear").click(function () {
+        $(".hidden").hide();
         var goodreadsPref = localStorage.getItem("goodreadsPref");
         if (goodreadsPref && goodreadsPref !== "ThisYear") {
             localStorage.setItem("goodreadsPref", "ThisYear");

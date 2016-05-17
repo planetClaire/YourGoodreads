@@ -10,8 +10,9 @@
       'bower_components/foundation-sites/js/foundation.util.motion.js',
       'bower_components/foundation-sites/js/foundation.util.triggers.js',
       'bower_components/foundation-sites/js/foundation.util.box.js',
-      //'bower_components/foundation-sites/js/foundation.util.touch.js',
+      'bower_components/foundation-sites/js/foundation.util.touch.js',
       'bower_components/foundation-sites/js/foundation.reveal.js',
+      'bower_components/foundation-sites/js/foundation.tooltip.js',
       //'bower_components/foundation-sites/js/foundation.abide.js',
       //'bower_components/foundation-sites/js/foundation.accordion.js',
       //'bower_components/foundation-sites/js/foundation.accordionMenu.js',
@@ -29,7 +30,6 @@
       //'bower_components/foundation-sites/js/foundation.sticky.js',
       //'bower_components/foundation-sites/js/foundation.tabs.js',
       //'bower_components/foundation-sites/js/foundation.toggler.js',
-      //'bower_components/foundation-sites/js/foundation.tooltip.js',
       //'bower_components/foundation-sites/js/foundation.util.nest.js',
 
     ];
