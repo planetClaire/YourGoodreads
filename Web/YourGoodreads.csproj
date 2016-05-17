@@ -57,18 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\yourgoodreads.pubxml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="gruntfile.js" />
+    <Content Include="images\goodreads.png" />
+    <Content Include="images\radio.svg" />
+    <Content Include="scss\styles.scss" />
+    <Content Include="scss\_settings.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
     <Content Include="scripts\app.js" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

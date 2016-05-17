@@ -1,0 +1,6 @@
+{
+  "name": "foundation-libsass-template",
+  "dependencies": {
+    "foundation-sites": "6.2.1"
+  }
+}

@@ -238,3 +238,14 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+Web/scripts/babel/*
+Web/scripts/concat/*
+Web/scripts/*.min.js*
+Web/styles/styles.css
+Web/styles/styles.css.map
