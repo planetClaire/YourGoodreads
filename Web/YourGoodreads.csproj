@@ -59,12 +59,15 @@
   <ItemGroup>
     <Content Include="bower.json" />
     <Content Include="package.json" />
+    <Content Include="scripts\scripts.min.js" />
+    <Content Include="styles\styles.css" />
     <None Include="Properties\PublishProfiles\yourgoodreads.pubxml" />
     <Content Include="gruntfile.js" />
     <Content Include="images\goodreads.png" />
     <Content Include="images\radio.svg" />
     <Content Include="scss\styles.scss" />
     <Content Include="scss\_settings.scss" />
+    <Content Include="scripts\scripts.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
