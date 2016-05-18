@@ -43,6 +43,12 @@
 @include foundation-thumbnail;
 @include foundation-title-bar;
 */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
 
 .top-bar-left{
     a{
@@ -157,13 +163,23 @@
         font-weight: bold;
     }
 }
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+footer, .page-wrap:after {
+    height: 149px;
+}
 footer{
     position: relative;
     background: $secondary-color;
-    padding: 30px 15px 15px 15px;
+    padding: 58px 15px 15px 15px;
     text-align: center;
     font-weight: bold;
-    height: 149px;
     a{
         color: $yellow;
     }

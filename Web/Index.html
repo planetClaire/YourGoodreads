@@ -8,45 +8,47 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Your Goodreads</li>
-            <li><a id="aAll" href="#" data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Up to 100 books will be shown">All</a></li>
-            <li><a id="aThisYear" href="#" data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Everything you've read this year plus your current reading'">This year</a></li>
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <form id="frmRead">
-            <ul class="menu">
-                <li><input id="txtId" type="text" placeholder="Your Goodreads Id"></li>
-                <li><button id="btnSubmit" type="submit" class="button"></button></li>
-                <li><a href="https://www.goodreads.com" target="_blank"><img src="images/goodreads.png" alt="Goodreads icon"/></a></li>
+<div class="page-wrap">
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Your Goodreads</li>
+                <li><a id="aAll" href="#" data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Up to 100 books will be shown">All</a></li>
+                <li><a id="aThisYear" href="#" data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Everything you've read this year plus your current reading'">This year</a></li>
             </ul>
-        </form>
+        </div>
+        <div class="top-bar-right">
+            <form id="frmRead">
+                <ul class="menu">
+                    <li><input id="txtId" type="text" placeholder="Your Goodreads Id"></li>
+                    <li><button id="btnSubmit" type="submit" class="button"></button></li>
+                    <li><a href="https://www.goodreads.com" target="_blank"><img src="images/goodreads.png" alt="Goodreads icon"/></a></li>
+                </ul>
+            </form>
+        </div>
     </div>
-</div>
-<div id="content" class="text-center">
-    <div class="alert callout hidden" id="nothing-found">
-        <h5>Sorry, couldn't find anything. </h5>
-        <p>Check your Goodreads Id.</p>
-    </div>
-    <div class="alert callout hidden" id="no-local">
-        <h5>Sorry, your browser doesn't support local storage and therefore we can't help you.</h5>
-    </div>
-    <div class="callout hidden" id="enter-id">
-        <h5>Enter your Goodreads Id into the form above.</h5>
-        <p><a data-open="reveal-instructions">Where do I find it?</a>
-        </p>
-    </div>
+    <div id="content" class="text-center">
+        <div class="alert callout hidden" id="nothing-found">
+            <h5>Sorry, couldn't find anything. </h5>
+            <p>Check your Goodreads Id.</p>
+        </div>
+        <div class="alert callout hidden" id="no-local">
+            <h5>Sorry, your browser doesn't support local storage and therefore we can't help you.</h5>
+        </div>
+        <div class="callout hidden" id="enter-id">
+            <h5>Enter your Goodreads Id into the form above.</h5>
+            <p><a data-open="reveal-instructions">Where do I find it?</a>
+            </p>
+        </div>
 
-    <ol id="results"></ol>
-</div>
+        <ol id="results"></ol>
+    </div>
 
     <div class="reveal" id="reveal-instructions" data-reveal>
         <h2>Do you read with a Kindle &amp; miss the full colour jackets? </h2>
         <p>If so, this is for you.</p>
-        <p>You can find your Goodreads Id by logging into <a target="_blank" href="https://www.goodreads.com">Goodreads</a></p>
+        <p>You can find your Goodreads Id by logging into <a target="_blank" href="https://www.goodreads.com">Goodreads</a>
+        </p>
         <ul>
             <li>Click on your Profile avatar in the top right hand corner of the Goodreads website.</li>
             <li>Your Goodreads Id is the string of digits in the url.</li>
@@ -58,12 +60,13 @@
         </button>
     </div>
 
-<div id="overlay">
-    <img src="images/radio.svg" id="img-load"/>
+    <div id="overlay">
+        <img src="images/radio.svg" id="img-load"/>
+    </div>
 </div>
-
 <footer>
-    <p>A bit of fun from <a href="https://www.zeta.com.au" target="_blank">Zeta Tech</a></p>
+    <p>A bit of fun from <a href="https://www.zeta.com.au" target="_blank">Zeta Tech</a>
+    </p>
     <a target="_blank" href="https://github.com/planetClaire/YourGoodreads" id="fork-me"><img src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67"></a>
 </footer>
 
