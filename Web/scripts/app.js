@@ -116,8 +116,8 @@ $(function () {
                         var goodreadsPref = localStorage.getItem("goodreadsPref");
                         if (goodreadsPref === "ThisYear") {
                             var thisYear = new Date().getFullYear();
-                            results = $.grep(results, function(b) {
-                                return (b.user_shelves && b.user_shelves.contains("currently-reading")) || (b.user_read_at && b.user_read_at.contains(thisYear));
+                            results = $.grep(results, function (b) {
+                                return (b.user_shelves && (b.user_shelves === "currently-reading" || b.user_shelves.contains("currently-reading"))) || (b.user_read_at && b.user_read_at.indexOf(thisYear) > -1);
                             });
                         }
                         localStorage.setItem("goodreadsRead" + goodreadsId, JSON.stringify(results));

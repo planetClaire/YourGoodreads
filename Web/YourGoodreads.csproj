@@ -68,6 +68,7 @@
     <Content Include="scss\styles.scss" />
     <Content Include="scss\_settings.scss" />
     <Content Include="scripts\scripts.min.js.map" />
+    <Content Include="styles\styles.css.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
